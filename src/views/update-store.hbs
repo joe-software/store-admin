@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Update Store</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <a href="/store">Store Home</a>
+    {{# each data}}
+    <p>{{ this.id }} </p>
+    <p>{{ this.itemName }} </p>
+    <p>{{ this.itemQuantity }} </p>
+    <p>{{ this.inWarehouse }} </p>
+    <p>{{ this.dateAdded }} </p>
+    <p>{{ this.dateUpdated }} </p>
+    {{/each}}
+    <p>data</p>
+    
+</body>
+</html>
