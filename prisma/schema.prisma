@@ -18,9 +18,8 @@ model StoreInventory {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   itemName String @unique
   itemQuantity Int
+  itemSupplier String
   inWarehouse Boolean
-  dateAdded DateTime
+  dateAdded DateTime?
   dateUpdated DateTime?
-
-
 }

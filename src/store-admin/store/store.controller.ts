@@ -30,19 +30,22 @@ export class StoreController {
 
     }
 
-    @Get('update-store')
-    @Render('update-store')
-    getUpdateStore(): void{
+    @Get('create-store')
+    @Render('create-store')
+    getCreateStore(): void{
 
     }
 
-    @Post('update-store')
+    @Post('create-store')
     @Redirect('')
-    postUpdateStore(@Body() body): void{
-        console.log(body)
-    }
+    postCreateStore(@Body() body){
+        if(body.inWarehoue == '1'){
+            body.inWarehouse = true
+        } else {
+            body.inWarehouse = false
+        }
+        return this.storeService.postCreateStore(body)
+}
 
-
-    
 
 }
