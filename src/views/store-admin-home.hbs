@@ -5,20 +5,41 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Store Admin</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://unpkg.com/tabulator-tables@6.3.0/dist/css/tabulator.min.css" rel="stylesheet">
+ <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.0/dist/js/tabulator.min.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
 <body>
     <a href="/store/create-store">Create</a>
+
+    <div id="store-table"></div>
+
     {{# each data}}
     <p>{{ this.id }} </p>
     <p>{{ this.itemName }} </p>
     <p>{{ this.itemQuantity }} </p>
+    <p>{{ this.itemSupplier }} </p>
     <p>{{ this.inWarehouse }} </p>
     <p>{{ this.dateAdded }} </p>
     <p>{{ this.dateUpdated }} </p>
+    <a href="/store/update-store/{{this.id}}">Update</a>
+    <a href="/store/delete-store/{{this.id}}">Delete</a>
     {{/each}}
     <p>data</p>
     
 </body>
+<script>
+     
+
+ var table = new Tabulator("#store-table", {
+    data:{{{JSON.stringify(data)}}},
+ 	height:300,
+ 	data:tabledata,
+ 	layout:"fitColumns",
+ 	columns:[
+	 	{title:"id", field:"id", width:200},
+ 	],
+});
+</script>
 </html>
