@@ -3,14 +3,22 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Store Admin Home</title>
+    <title>Store Admin</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
 <body>
-    <a href="/store/update-store">Update Store</a>
-    <p>Update Store Page</p>
+    <a href="/store/update-store"></a>
+    {{# each data}}
+    <p>{{ this.id }} </p>
+    <p>{{ this.itemName }} </p>
+    <p>{{ this.itemQuantity }} </p>
+    <p>{{ this.inWarehouse }} </p>
+    <p>{{ this.dateAdded }} </p>
+    <p>{{ this.dateUpdated }} </p>
+    {{/each}}
+    <p>data</p>
     
 </body>
 </html>
