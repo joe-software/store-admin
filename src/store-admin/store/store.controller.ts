@@ -2,6 +2,7 @@ import { Controller, Get, Render, Post, Redirect, Body, Param } from '@nestjs/co
 import { StoreService } from './store.service';
 import { CreateStoreDto } from './dto/create-store.dto';
 import { UpdateStoreDto } from './dto/update-store.dto.';
+import { toArray } from 'rxjs';
 
 @Controller('store')
 export class StoreController {
@@ -9,9 +10,13 @@ export class StoreController {
 
     @Get()
     @Render('store-admin-home')
-    async findAll(): Promise <{}> {
-        let testData: {} = await this.storeService.findAll();
-        return {data: testData}
+    async findAll():Promise <{}> {
+        let storeData: {}[] = await this.storeService.findAll();
+        storeData.map(item => {
+            item['update'] = `<a href="/store/update-store/${item['id']}">Update<a>`
+            item['delete'] = `<a href="/store/delete-store/${item['id']}">Delete<a>`
+        })
+        return {data: storeData}
     }
 
     @Get('create-store')
@@ -50,6 +55,7 @@ export class StoreController {
     @Redirect('/store')
     async postDeleteStore(@Param('id') id: string): Promise <void>{
         await this.storeService.postDeleteStore(id)
+
     }
 
     

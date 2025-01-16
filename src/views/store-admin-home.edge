@@ -14,32 +14,29 @@
     <a href="/store/create-store">Create</a>
 
     <div id="store-table"></div>
-
-    {{# each data}}
-    <p>{{ this.id }} </p>
-    <p>{{ this.itemName }} </p>
-    <p>{{ this.itemQuantity }} </p>
-    <p>{{ this.itemSupplier }} </p>
-    <p>{{ this.inWarehouse }} </p>
-    <p>{{ this.dateAdded }} </p>
-    <p>{{ this.dateUpdated }} </p>
-    <a href="/store/update-store/{{this.id}}">Update</a>
-    <a href="/store/delete-store/{{this.id}}">Delete</a>
-    {{/each}}
-    <p>data</p>
     
 </body>
 <script>
      
 
- var table = new Tabulator("#store-table", {
-    data:{{{JSON.stringify(data)}}},
- 	height:300,
- 	data:tabledata,
- 	layout:"fitColumns",
- 	columns:[
-	 	{title:"id", field:"id", width:200},
- 	],
+    let table = new Tabulator("#store-table", {
+ 	height:205,
+ 	data:{{{JSON.stringify(data)}}},
+ 	layout:"fitColumns", 
+ 	columns:[ 
+	 	{title:"id", field:"id", width:150},
+	 	{title:"itemQuantity", field:"itemQuantity"},
+	 	{title:"itemName", field:"itemName"},
+        {title:"itemSupplier", field:"itemSupplier"},
+        {title:"inWarehouse", field:"inWarehouse", formatter:"tickCross"},
+        {title:"dateAdded", field:"dateAdded"},
+        {title:"dateUpdated", field:"dateUpdated"},
+        {title:"update", field:"update", formatter:"html"},
+        {title:"delete", field:"delete", formatter:"html"}
+     	],
 });
+
+    
+
 </script>
 </html>

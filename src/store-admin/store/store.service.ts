@@ -8,7 +8,7 @@ import { UpdateStoreDto } from './dto/update-store.dto.';
 export class StoreService {
     constructor(private prisma: PrismaService) {}
 
-    findAll(){
+    findAll(): Promise <{}[]>{
         return this.prisma.storeInventory.findMany()
     }
 
