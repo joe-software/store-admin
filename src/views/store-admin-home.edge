@@ -38,19 +38,21 @@
         pagination: true,
         paginationSize: 10,
         paginationSizeSelector: true,
- 	height:205,
+ 	height:500,
  	data:{{{JSON.stringify(data)}}},
+  persistance: true,
+  pagination: 'local',
  	layout:"fitColumns", 
  	columns:[ 
-	 	{title:"id", field:"id", width:150},
-	 	{title:"itemQuantity", field:"itemQuantity"},
-	 	{title:"itemName", field:"itemName"},
-        {title:"itemSupplier", field:"itemSupplier"},
-        {title:"inWarehouse", field:"inWarehouse", formatter:"tickCross"},
-        {title:"dateAdded", field:"dateAdded"},
-        {title:"dateUpdated", field:"dateUpdated"},
-        {title:"update", field:"update", formatter:"html"},
-        {title:"delete", field:"delete", formatter:"html"}
+	 	    {title:"Item id", field:"id", width:150},
+        {title:"Name of Item", field:"itemName"},
+	 	    {title:"Quantity", field:"itemQuantity"},
+        {title:"Supplier", field:"itemSupplier"},
+        {title:"In Warehouse", field:"inWarehouse", formatter:"tickCross"},
+        {title:"Date Entry Added", field:"dateAdded"},
+        {title:"Date Entry Modified", field:"dateUpdated"},
+        {title:"Update Entry", field:"update", formatter:"html"},
+        {title:"Delete Entry", field:"delete", formatter:"html"}
      	],
 });
 

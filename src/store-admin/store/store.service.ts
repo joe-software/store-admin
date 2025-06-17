@@ -13,6 +13,7 @@ export class StoreService {
     }
 
     postCreateStore(data: CreateStoreDto): Promise <{}>{
+        data['dateAdded'] = new Date().toISOString()
         return this.prisma.storeInventory.create({data})
     }
 
@@ -21,6 +22,7 @@ export class StoreService {
     }
 
     postUpdateStore(id: string, updateStoreDto: UpdateStoreDto): Promise <{}>{
+        updateStoreDto['dateUpdated'] = new Date().toISOString()
         return this.prisma.storeInventory.update({where:{id:id}, data:updateStoreDto})
     }
 

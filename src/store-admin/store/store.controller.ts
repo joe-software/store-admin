@@ -13,6 +13,9 @@ export class StoreController {
     async findAll():Promise <{}> {
         let storeData: {}[] = await this.storeService.findAll();
         storeData.map(item => {
+            item['dateAdded'] ? item['dateAdded'] = new Date(item['dateAdded']).toLocaleDateString() : null
+            item['dateUpdated'] ? item['dateUpdated'] = new Date(item['dateUpdated']).toLocaleDateString() : null
+            
             item['update'] = `<a href="/store/update-store/${item['id']}">Update<a>`
             item['delete'] = `<a href="/store/delete-store/${item['id']}">Delete<a>`
         })
