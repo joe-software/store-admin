@@ -42,17 +42,17 @@
  	data:{{{JSON.stringify(data)}}},
   persistance: true,
   pagination: 'local',
- 	layout:"fitData", 
+ 	layout:"fitDataFill", 
  	columns:[ 
 	 	    {title:"Item id", field:"id", width:150},
-        {title:"Name of Item", field:"itemName"},
-	 	    {title:"Quantity", field:"itemQuantity"},
+        {title:"Item Name", field:"itemName", width:180},
+	 	    {title:"Quantity", field:"itemQuantity", width:60},
         {title:"Supplier", field:"itemSupplier"},
         {title:"In Warehouse", field:"inWarehouse", formatter:"tickCross"},
         {title:"Date Entry Added", field:"dateAdded"},
         {title:"Date Entry Modified", field:"dateUpdated"},
-        {title:"Update Entry", field:"update", formatter:"html"},
-        {title:"Delete Entry", field:"delete", formatter:"html"}
+        {title:"Update", field:"update", formatter:"html"},
+        {title:"Delete", field:"delete", formatter:"html"}
      	],
 });
 
