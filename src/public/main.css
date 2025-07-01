@@ -13,3 +13,9 @@ body{
   background-color: #a59e96;
   font-weight: bold;
 }
+
+.custom-button-color{
+  color: #0E1818;
+  background-color: #a59e96;
+  border: none;
+}
